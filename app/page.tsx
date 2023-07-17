@@ -5,6 +5,11 @@ import ProjectCard from "@/components/ProjectCard";
 import { fetchAllProjects } from "@/lib/actions";
 import { type } from "os";
 
+type SearchParams = {
+  category?: string;
+  endcursor?: string;
+};
+
 type ProjectSearch = {
   projectSearch: {
     edges: { node: ProjectInterface }[];
@@ -15,11 +20,6 @@ type ProjectSearch = {
       endCursor: string;
     };
   };
-};
-
-type SearchParams = {
-  category?: string;
-  endcursor?: string;
 };
 
 type Props = {
