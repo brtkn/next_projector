@@ -11,7 +11,7 @@ type SearchParams = {
 };
 
 type ProjectSearch = {
-  projectSearch: {
+  projectSearch?: {
     edges: { node: ProjectInterface }[];
     pageInfo: {
       hasPreviousPage: boolean;
@@ -52,7 +52,7 @@ const Home = async ({ searchParams: { category, endcursor } }: Props) => {
     <section className="flex-start flex-col paddings mb-16">
       <Categories />
       <section className="projects-grid">
-        {projectsToDisplay.map(({ node }: { node: ProjectInterface }) => (
+        {projectsToDisplay?.map(({ node }: { node: ProjectInterface }) => (
           <ProjectCard
             key={node?.id}
             id={node?.id}
