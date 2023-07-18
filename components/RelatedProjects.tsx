@@ -15,8 +15,6 @@ const RelatedProjects = async ({ userId, projectId }: Props) => {
     ({ node }: { node: ProjectInterface }) => node?.id !== projectId
   );
 
-  console.log(filteredProjects);
-
   if (filteredProjects?.length === 0) return null;
 
   return (

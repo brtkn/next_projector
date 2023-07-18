@@ -70,7 +70,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const [form, setForm] = useState<FormState>({
+  const [form, setForm] = useState({
     title: project?.title || "",
     description: project?.description || "",
     image: project?.image || "",
@@ -131,7 +131,7 @@ const ProjectForm = ({ type, session, project }: Props) => {
 
       {/* Custom Input Category */}
       <CustomMenu
-        title="category"
+        title="Category"
         state={form.category}
         filters={categoryFilters}
         setState={(value) => handleStateChange("category", value)}
