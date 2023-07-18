@@ -11,7 +11,7 @@ type SearchParams = {
 };
 
 type ProjectSearch = {
-  projectSearch?: {
+  projectSearch: {
     edges: { node: ProjectInterface }[];
     pageInfo: {
       hasPreviousPage: boolean;
