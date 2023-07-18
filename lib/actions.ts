@@ -101,16 +101,12 @@ export const createNewProject = async (
 };
 
 export const fetchAllProjects = async (
-  category?: string | null,
-  endCursor?: string | null
+  category?: string,
+  endCursor?: string
 ) => {
   client.setHeader("x-api-key", apiKey);
-  const categoryForQuery = category ?? undefined;
 
-  return makeGraphQLRequest(projectsQuery, {
-    category: categoryForQuery,
-    endCursor,
-  });
+  return makeGraphQLRequest(projectsQuery, { category, endCursor });
 };
 
 export const getProjectDetails = (id: string) => {

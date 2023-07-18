@@ -6,8 +6,8 @@ import { fetchAllProjects } from "@/lib/actions";
 import { type } from "os";
 
 type SearchParams = {
-  category?: string | null;
-  endcursor?: string | null;
+  category?: string;
+  endcursor?: string;
 };
 
 type ProjectSearch = {
