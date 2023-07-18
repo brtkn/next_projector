@@ -9,6 +9,7 @@ const User = g
     description: g.string().optional(),
     githubUrl: g.url().optional(),
     linkedinUrl: g.url().optional(),
+    //@ts-ignore
     projects: g
       .relation(() => Project)
       .list()
@@ -18,7 +19,7 @@ const User = g
     rules.public().read();
   });
 
-// @ts-ignore
+//@ts-ignore
 const Project = g
   .model("Project", {
     title: g.string().length({ min: 3 }),
@@ -30,8 +31,7 @@ const Project = g
     createdBy: g.relation(() => User),
   })
   .auth((rules) => {
-    rules.public().read();
-    rules.private().create().delete().update();
+    rules.public().read(), rules.private().create().delete().update();
   });
 
 const jwt = auth.JWT({
