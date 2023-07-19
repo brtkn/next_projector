@@ -1,5 +1,6 @@
 import { g, auth, config } from "@grafbase/sdk";
 
+//To update grafbase
 //@ts-ignore
 const User = g
   .model("User", {
