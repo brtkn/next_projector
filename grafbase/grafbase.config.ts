@@ -19,7 +19,6 @@ const User = g
     rules.public().read();
   });
 
-//Update
 //@ts-ignore
 const Project = g
   .model("Project", {
