@@ -18,6 +18,7 @@ const User = g
   .auth((rules) => {
     rules.public().read();
   });
+
 //Update
 //@ts-ignore
 const Project = g
