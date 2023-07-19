@@ -27,6 +27,7 @@ const Project = g
     image: g.url(),
     liveSiteUrl: g.url(),
     githubUrl: g.url(),
+    //@ts-ignore
     category: g.string().search(),
     createdBy: g.relation(() => User),
   })
