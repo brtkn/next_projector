@@ -11,6 +11,7 @@ import {
 } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 
+// If the value of NODE_ENV is set to "production", the expression evaluates to true otherwise false.
 const isProduction = process.env.NODE_ENV === "production";
 
 const apiUrl = isProduction
@@ -100,13 +101,16 @@ export const createNewProject = async (
   }
 };
 
-export const fetchAllProjects = (
+export const fetchAllProjects = async (
   category?: string | null,
   endcursor?: string | null
 ) => {
   client.setHeader("x-api-key", apiKey);
 
-  return makeGraphQLRequest(projectsQuery, { category, endcursor });
+  // Conditionally add the category variable to the GraphQL request
+  const variables = category ? { category, endcursor } : { endcursor };
+
+  return makeGraphQLRequest(projectsQuery, variables);
 };
 
 export const getProjectDetails = (id: string) => {
