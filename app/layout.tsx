@@ -2,6 +2,9 @@ import "./global.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+//This statement means to cache nothing and fetch the latest data from server
+export const revalidate = 0;
+
 export const metadata = {
   title: "Projector",
   description: "Share and Find Creative Projects",
