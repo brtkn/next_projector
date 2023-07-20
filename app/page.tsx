@@ -52,17 +52,19 @@ const Home = async ({ searchParams: { category, endcursor } }: Props) => {
     <section className="flex-start flex-col paddings mb-16">
       <Categories />
       <section className="projects-grid">
-        {projectsToDisplay?.map(({ node }: { node: ProjectInterface }) => (
-          <ProjectCard
-            key={node?.id}
-            id={node?.id}
-            image={node?.image}
-            title={node?.title}
-            name={node?.createdBy?.name}
-            avatarUrl={node?.createdBy?.avatarUrl}
-            userId={node?.createdBy?.id}
-          />
-        ))}
+        {projectsToDisplay?.map(({ node }: { node: ProjectInterface }) =>
+          node ? (
+            <ProjectCard
+              key={node?.id}
+              id={node?.id}
+              image={node?.image}
+              title={node?.title}
+              name={node?.createdBy?.name}
+              avatarUrl={node?.createdBy?.avatarUrl}
+              userId={node?.createdBy?.id}
+            />
+          ) : null
+        )}
       </section>
       <LoadMore
         startCursor={pagination.startCursor}
