@@ -35,6 +35,8 @@ const Home = async ({ searchParams: { category, endcursor } }: Props) => {
 
   const projectsToDisplay = data?.projectSearch?.edges || [];
 
+  console.log(projectsToDisplay.map(({ node }) => node?.createdBy));
+
   const pagination = data?.projectSearch?.pageInfo;
 
   if (projectsToDisplay.length === 0) {
@@ -59,7 +61,11 @@ const Home = async ({ searchParams: { category, endcursor } }: Props) => {
               id={node?.id}
               image={node?.image}
               title={node?.title}
-              name={node?.createdBy?.name}
+              name={
+                node?.createdBy?.name.length > 8
+                  ? node?.createdBy?.name.substring(0, 8) + "..."
+                  : node?.createdBy?.name
+              }
               avatarUrl={node?.createdBy?.avatarUrl}
               userId={node?.createdBy?.id}
             />

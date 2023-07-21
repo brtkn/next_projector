@@ -20,7 +20,9 @@ const ProfilePage = ({ user }: Props) => (
           className="rounded-full"
           alt="user image"
         />
-        <p className="text-4xl font-bold mt-10">{user?.name}</p>
+        <p className="text-4xl font-bold mt-10">
+          {user?.name.length > 7 ? user?.name.substring(0, 7) : user?.name}
+        </p>
         <p className="md:text-5xl text-3xl font-extrabold md:mt-10 mt-5 max-w-lg">
           I’m Software Engineer at ??? company 👋
         </p>
